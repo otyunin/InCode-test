@@ -1,0 +1,7 @@
+.search {
+    padding: 15px;
+}
+
+.search.ui.icon.input>i.icon{
+    right: 15px;
+}
