@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import SearchInput from './SearchInput'
+import ClientsList from './ClientsList'
 
 const LeftBar = () => (
-  <SearchInput />
+  <Fragment>
+    <SearchInput />
+    <ClientsList />
+  </Fragment>
 )
 
 export default LeftBar

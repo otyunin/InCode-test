@@ -1,7 +1,12 @@
 .search {
+    border-bottom: 1px solid rgba(34, 36, 38, .10);
+}
+
+.search-input {
     padding: 15px;
 }
 
-.search.ui.icon.input>i.icon{
+.search-input.ui.icon.input > i.icon {
     right: 15px;
+    border: 0;
 }

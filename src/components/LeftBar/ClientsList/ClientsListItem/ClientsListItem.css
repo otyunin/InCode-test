@@ -1,0 +1,9 @@
+.client-in-list {
+    display: flex;
+    padding: 9px 15px;
+    border-bottom: 1px solid rgba(34, 36, 38, .10);
+}
+
+.client-info {
+    align-self: center;
+}

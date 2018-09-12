@@ -18,10 +18,12 @@ class SearchInput extends React.Component {
   render() {
     const { search } = this.state
     return (
-      <Input icon size="large" placeholder="Search..." fluid className="search">
-        <input onClick={this.handleFocus} onChange={this.handleChange} value={search} />
-        {!search ? <Icon name="search" /> : <Icon link name="delete" onClick={this.handleDelete} />}
-      </Input>
+      <div className="search">
+        <Input icon placeholder="Search..." fluid className="search-input">
+          <input onClick={this.handleFocus} onChange={this.handleChange} value={search} />
+          {!search ? <Icon name="search" /> : <Icon link name="delete" onClick={this.handleDelete} />}
+        </Input>
+      </div>
     )
   }
 }
