@@ -1,12 +1,10 @@
 .clients-list {
     height: 100%;
     overflow-y: scroll;
-    margin: -2px;
 }
 
 .clients-list::-webkit-scrollbar {
     width: 2px;
-    height: 100%;
 }
 
 .clients-list::-webkit-scrollbar-track {
