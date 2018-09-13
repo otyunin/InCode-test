@@ -2,7 +2,13 @@
   "name": "incode-test",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "concurrently": "^4.0.1",
+    "express": "^4.16.3",
+    "method-override": "^3.0.0",
     "prop-types": "latest",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
@@ -16,8 +22,9 @@
     "semantic-ui-react": "^0.82.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "eject": "react-scripts eject"
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "client": "react-scripts start",
+    "server": "node server.js"
   },
   "devDependencies": {
     "eslint": "^5.5.0",

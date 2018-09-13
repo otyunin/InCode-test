@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import SearchInput from './SearchInput'
+import SearchBar from './SearchBar'
 import ClientsList from './ClientsList'
 
 const LeftBar = () => (
   <Fragment>
-    <SearchInput />
+    <SearchBar />
     <ClientsList />
   </Fragment>
 )

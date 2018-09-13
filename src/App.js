@@ -1,17 +1,28 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import LeftBar from './components/LeftBar'
-import './App.css'
 
-const App = () => (
-  <Grid style={{ height: '100vh', margin: 0 }}>
-    <Grid.Column width={4} className="left-bar" style={{ padding: 0 }}>
-      <LeftBar />
-    </Grid.Column>
-    <Grid.Column stretched width={12}>
+const App = () => {
+  const style = {
+    grid: {
+      height: '100vh',
+      margin: 0,
+    },
+    leftColumn: {
+      padding: 0,
+      borderRight: '2px solid rgba(34, 36, 38, .15)',
+    },
+  }
+  return (
+    <Grid style={style.grid}>
+      <Grid.Column width={4} style={style.leftColumn}>
+        <LeftBar />
+      </Grid.Column>
+      <Grid.Column stretched width={12}>
 
-    </Grid.Column>
-  </Grid>
-)
+      </Grid.Column>
+    </Grid>
+  )
+}
 
 export default App
