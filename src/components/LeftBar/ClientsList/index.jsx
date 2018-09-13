@@ -26,10 +26,10 @@ class ClientsList extends React.Component {
       },
     }
 
-    const { clients, loading } = this.props
+    const { filterClients, loading } = this.props
 
     // user list items
-    const ClientItems = clients && clients.map((client, index) => (
+    const ClientItems = filterClients.map((client, index) => (
       <List.Item key={index} style={style.listItem}>
         <Image avatar style={style.listItemAvatar} src={client.general.avatar} />
         <List.Content>
@@ -66,18 +66,18 @@ class ClientsList extends React.Component {
 }
 
 ClientsList.propTypes = {
-  clients: PropTypes.array,
+  filterClients: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
   loading: PropTypes.bool,
 }
 
 ClientsList.defaultProps = {
-  clients: [],
+  filterClients: [],
   loading: true,
 }
 
 const mapStateToProps = store => ({
-  clients: store.clients,
+  filterClients: store.filterClients,
   loading: store.loading,
 })
 

@@ -2,6 +2,7 @@ import {
   GET_CLIENTS_PENDING,
   GET_CLIENTS_FULFILLED,
   GET_CLIENTS_REJECTED,
+  SEARCH,
 } from '../actions/clients.action'
 
 const initialState = {
@@ -9,7 +10,7 @@ const initialState = {
   errors: null,
   searchValue: '',
   clients: [],
-  filterClients: null,
+  filterClients: [],
 }
 
 const clients = (state = initialState, { type, payload }) => {
@@ -24,6 +25,7 @@ const clients = (state = initialState, { type, payload }) => {
       return {
         ...state,
         clients: payload,
+        filterClients: payload,
         loading: false,
       }
 
@@ -33,6 +35,20 @@ const clients = (state = initialState, { type, payload }) => {
         errors: payload,
         loading: false,
       }
+
+    case SEARCH: {
+      const resultSearch = state.clients.filter((client) => {
+        const allInfo = `${client.general.firstName} ${client.general.lastName} ${Object.values(client.job).join(' ')} 
+        ${Object.values(client.contact).join(' ')} ${Object.values(client.address).join(' ')}`
+        return allInfo.toLowerCase().includes(payload)
+      })
+      return {
+        ...state,
+        filterClients: payload === '' ? state.clients : resultSearch,
+        loading: false,
+      }
+    }
+
     default: {
       return state
     }
