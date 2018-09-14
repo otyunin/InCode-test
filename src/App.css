@@ -4,7 +4,7 @@
 }
 
 .clients-list-mobile {
-    height: 268px;
+    height: calc(100vh - 68px - 300px);
     overflow-y: scroll;
 }
 

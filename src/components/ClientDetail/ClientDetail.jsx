@@ -6,8 +6,8 @@ import { Card, Header, Image, List } from 'semantic-ui-react'
 const ClientDetail = ({ clientDetail }) => {
   const style = {
     avatar: {
-      width: 128,
-      height: 128,
+      maxWidth: 128,
+      maxHeight: 128,
       margin: '0 15px 15px 0',
     },
   }
