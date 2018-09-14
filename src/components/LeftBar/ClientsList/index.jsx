@@ -1,64 +1,49 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { List, Image, Dimmer, Loader } from 'semantic-ui-react'
-import './ClientsList.css'
-import { getClients } from '../../../redux/actions/clients.action'
+import { List } from 'semantic-ui-react'
+import { getClientDetail, getClients } from '../../../redux/actions/clients.action'
+import ClientItem from './ClientItem'
+import LoadingCircle from '../../LoadingCircle'
 
 class ClientsList extends React.Component {
+  state = {
+    activeItem: null,
+  }
+
   componentDidMount() {
     const { dispatch } = this.props
     dispatch(getClients())
   }
 
+  handleClickClient = (client, index) => {
+    const { activeItem } = this.state
+    const { dispatch } = this.props
+    dispatch(getClientDetail(client))
+    this.setState({ activeItem: index === activeItem ? null : index })
+  }
+
   render() {
-    const style = {
-      listClients: {
-        margin: '0 -2px 0 0',
-      },
-      listItem: {
-        padding: '9px 15px',
-      },
-      listItemAvatar: {
-        width: '48px',
-        height: '48px',
-        marginRight: '8px',
-      },
-    }
-
+    const { activeItem } = this.state
     const { filterClients, loading } = this.props
-
-    // user list items
-    const ClientItems = filterClients.map((client, index) => (
-      <List.Item key={index} style={style.listItem}>
-        <Image avatar style={style.listItemAvatar} src={client.general.avatar} />
-        <List.Content>
-          <List.Header>{`${client.general.firstName} ${client.general.lastName}`}</List.Header>
-          <List.Description>
-            {client.job.title}
-          </List.Description>
-        </List.Content>
-      </List.Item>
-    ))
-
-    const LoadingCircle = (
-      <Dimmer active inverted>
-        <Loader inverted>Loading</Loader>
-      </Dimmer>
-    )
 
     return (
       <React.Fragment>
-        {loading ? LoadingCircle
+        {loading ? <LoadingCircle />
           : <List
-            items={ClientItems}
-            celled
             selection
             verticalAlign="middle"
-            className="clients-list"
-            style={style.listClients}
+            style={{ borderTop: '1px solid rgba(34,36,38,.1)' }}
             size="large"
-          />
+          >
+            {filterClients.map((client, index) => (
+              <ClientItem
+                key={index}
+                active={activeItem === index}
+                handleClickItem={() => this.handleClickClient(client, index)}
+                client={client}
+              />))}
+          </List>
         }
       </React.Fragment>
     )

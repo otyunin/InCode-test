@@ -5,8 +5,14 @@
 
 .clients-list::-webkit-scrollbar {
     width: 2px;
+    border-radius: 0;
 }
 
 .clients-list::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, .0);
 }
+
+.clients-list::-webkit-scrollbar-thumb {
+    border-radius: 0;
+}
+

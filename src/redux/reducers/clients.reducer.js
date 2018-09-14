@@ -1,4 +1,5 @@
 import {
+  GET_CLIENT_DETAIL,
   GET_CLIENTS_PENDING,
   GET_CLIENTS_FULFILLED,
   GET_CLIENTS_REJECTED,
@@ -11,6 +12,7 @@ const initialState = {
   searchValue: '',
   clients: [],
   filterClients: [],
+  clientDetail: null,
 }
 
 const clients = (state = initialState, { type, payload }) => {
@@ -34,6 +36,12 @@ const clients = (state = initialState, { type, payload }) => {
         ...state,
         errors: payload,
         loading: false,
+      }
+
+    case GET_CLIENT_DETAIL:
+      return {
+        ...state,
+        clientDetail: state.clientDetail === payload ? null : payload,
       }
 
     case SEARCH: {
