@@ -1,4 +1,4 @@
-Test task InCode Group
+Test task InCode Group.
 
 ## Getting started
 

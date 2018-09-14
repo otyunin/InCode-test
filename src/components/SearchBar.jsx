@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Icon, Input } from 'semantic-ui-react'
-import { search } from '../../redux/actions/clients.action'
+import { search } from '../redux/actions/clients.action'
 
 class SearchBar extends React.Component {
   state = {

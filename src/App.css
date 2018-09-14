@@ -1,5 +1,10 @@
 .clients-list {
-    height: 100%;
+    height: calc(100vh - 68px);
+    overflow-y: scroll;
+}
+
+.clients-list-mobile {
+    height: 268px;
     overflow-y: scroll;
 }
 

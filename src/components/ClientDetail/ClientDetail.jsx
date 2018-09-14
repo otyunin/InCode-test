@@ -8,14 +8,14 @@ const ClientDetail = ({ clientDetail }) => {
     avatar: {
       width: 128,
       height: 128,
-      marginRight: 15,
+      margin: '0 15px 15px 0',
     },
   }
 
   return (
     <div>
       {clientDetail
-        ? <div style={{ display: 'flex' }}>
+        ? <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           <Image src={clientDetail.general.avatar} rounded style={style.avatar} />
           <Card style={{ margin: 0, boxShadow: 'none', width: 'auto' }}>
             <Card.Content style={{ padding: 0 }}>

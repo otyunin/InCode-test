@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { List } from 'semantic-ui-react'
-import { getClientDetail, getClients } from '../../../redux/actions/clients.action'
+import { getClientDetail, getClients } from '../../redux/actions/clients.action'
 import ClientItem from './ClientItem'
-import LoadingCircle from '../../LoadingCircle'
+import LoadingCircle from '../LoadingCircle'
 
 class ClientsList extends React.Component {
   state = {
@@ -34,7 +34,6 @@ class ClientsList extends React.Component {
             selection
             verticalAlign="middle"
             style={{ borderTop: '1px solid rgba(34,36,38,.1)' }}
-            size="large"
           >
             {filterClients.map((client, index) => (
               <ClientItem

@@ -5,10 +5,12 @@ import { List, Image } from 'semantic-ui-react'
 const ClientItem = ({ client, active, handleClickItem }) => {
   const style = {
     listItem: {
+      display: 'flex',
+      alignItems: 'center',
       padding: '9px 15px',
       borderBottom: '1px solid rgba(34,36,38,.1)',
       borderRadius: 0,
-      background: active ? 'rgba(0,0,0,.1)' : 'inherit',
+      background: active && 'rgba(0,0,0,.1)',
     },
 
     listItemAvatar: {

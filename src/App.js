@@ -1,14 +1,13 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import ClientDetail from './components/ClientDetail/ClientDetail'
-import SearchBar from './components/LeftBar/SearchBar'
-import ClientsList from './components/LeftBar/ClientsList'
+import SearchBar from './components/SearchBar'
+import ClientsList from './components/ClientsList'
 import './App.css'
 
 const App = () => {
   const style = {
     grid: {
-      height: '100vh',
       margin: 0,
     },
     leftColumn: {
@@ -24,7 +23,7 @@ const App = () => {
   }
   return (
     <Grid style={style.grid}>
-      <Grid.Column style={style.leftColumn} width={4}>
+      <Grid.Column style={style.leftColumn} only="computer tablet" computer={4} tablet={8}>
         <Grid.Row>
           <SearchBar />
         </Grid.Row>
@@ -32,7 +31,15 @@ const App = () => {
           <ClientsList />
         </Grid.Row>
       </Grid.Column>
-      <Grid.Column width={12}>
+      <Grid.Column style={style.leftColumn} only="mobile" mobile={16}>
+        <Grid.Row>
+          <SearchBar />
+        </Grid.Row>
+        <Grid.Row className="clients-list-mobile">
+          <ClientsList />
+        </Grid.Row>
+      </Grid.Column>
+      <Grid.Column mobile={16} tablet={8} computer={10}>
         <ClientDetail />
       </Grid.Column>
     </Grid>
